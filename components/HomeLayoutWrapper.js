@@ -9,7 +9,7 @@ import ThemeSwitch from './ThemeSwitch'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
-const LayoutWrapper = ({ children }) => {
+const HomeLayoutWrapper = ({ children }) => {
   const parallaxRef = useRef()
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const LayoutWrapper = ({ children }) => {
           </div>
           <div className="relative">
             {/* Restored relative positioning for rest of the content */}
-            <main className="mb-auto">{children}</main>
+            <main className="mb-auto px-8 md:px-10 lg:px-12">{children}</main>
             <Footer />
           </div>
         </div>
@@ -87,4 +87,4 @@ const LayoutWrapper = ({ children }) => {
   )
 }
 
-export default LayoutWrapper
+export default HomeLayoutWrapper

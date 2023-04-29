@@ -9,13 +9,19 @@ import Head from 'next/head'
 
 import siteMetadata from '@/data/siteMetadata'
 import Analytics from '@/components/analytics'
-import LayoutWrapper from '@/components/LayoutWrapper'
+import HomeLayoutWrapper from '@/components/HomeLayoutWrapper'
 import { ClientReload } from '@/components/ClientReload'
+import { useRouter } from 'next/router'
+import GeneralLayoutWrapper from '@/components/GeneralLayoutWrapper'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 const isSocket = process.env.SOCKET
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  const isHomePage = router.pathname === '/'
+  const Layout = isHomePage ? HomeLayoutWrapper : GeneralLayoutWrapper
+
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
       <Head>
@@ -23,9 +29,9 @@ export default function App({ Component, pageProps }) {
       </Head>
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
-      <LayoutWrapper>
+      <Layout>
         <Component {...pageProps} />
-      </LayoutWrapper>
+      </Layout>
     </ThemeProvider>
   )
 }
