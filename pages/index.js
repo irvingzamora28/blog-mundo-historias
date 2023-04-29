@@ -2,25 +2,29 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getFilesFrontMatter, sortPostsByDate, sortPostsByPopularity } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 
 import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 10
+const MAX_LATEST = 5
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog')
-
+  const posts = await getFilesFrontMatter('blog')
+  const popular = await sortPostsByPopularity(posts.slice(0, MAX_DISPLAY))
+  const latest = await sortPostsByDate(posts)
+  console.log(popular)
   return {
     props: {
-      posts,
+      popular,
+      latest,
     },
   }
 }
 
-export default function Home({ posts }) {
+export default function Home({ popular, latest }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -37,10 +41,10 @@ export default function Home({ posts }) {
             </div>
           </div>
           <div className="flex flex-1 flex-col md:flex-row">
-            {!posts.length && 'No posts found.'}
+            {!popular.length && 'No posts found.'}
             <div className="container__blogs mr-2 flex w-full flex-wrap justify-between md:w-4/5">
-              {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-                const { slug, date, title, summary, tags } = frontMatter
+              {popular.slice(0, MAX_DISPLAY).map((frontMatter) => {
+                const { slug, date, title, summary, tags, popularity } = frontMatter
                 return (
                   <article key={slug} className="mb-4 w-full px-4 md:w-1/3">
                     <div className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow">
@@ -128,7 +132,7 @@ export default function Home({ posts }) {
               <div className="mb-4">
                 <h2 className="mb-2 text-lg font-medium text-gray-800">Latest Posts</h2>
                 <ul>
-                  {posts.slice(0, MAX_DISPLAY).map((frontMatter, index) => {
+                  {latest.slice(0, MAX_LATEST).map((frontMatter, index) => {
                     const { slug, date, title, summary, tags } = frontMatter
                     return (
                       <li key={slug} className={`mb-4 text-gray-900 ${index < MAX_DISPLAY - 1 ? 'border-b border-gray-300 pb-4' : ''}`}>
@@ -151,7 +155,7 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-        {posts.length > MAX_DISPLAY && (
+        {popular.length > MAX_DISPLAY && (
           <div className="flex justify-end text-base font-medium leading-6">
             <Link href="/blog" className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" aria-label="all posts">
               All Posts &rarr;
