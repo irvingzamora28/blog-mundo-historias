@@ -56,7 +56,9 @@ export default function Home({ popular, latest }) {
                             {formatDate(date)}
                           </time>
                         </p>
-                        <h3 className="text-xl font-medium text-gray-900">{title}</h3>
+                        <Link href={`/blog/${slug}`}>
+                          <h3 className="text-xl font-medium text-gray-900">{title}</h3>
+                        </Link>
                         <p className="mt-1 text-gray-500">{summary}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {tags.map((tag) => (
@@ -65,7 +67,7 @@ export default function Home({ popular, latest }) {
                         </div>
                         <div className="mt-4 flex justify-end gap-2">
                           <Link href={`/blog/${slug}`} className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400" aria-label={`Read "${title}"`}>
-                            Read more &rarr;
+                            Leer más &rarr;
                           </Link>
                         </div>
                       </div>
@@ -73,60 +75,6 @@ export default function Home({ popular, latest }) {
                   </article>
                 )
               })}
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
-              <div className="mb-4 w-full px-4 md:w-1/3">
-                <div className="h-full rounded bg-white p-4 shadow">
-                  <h2 className="mb-2 text-lg font-medium text-gray-800">Blog Post Title</h2>
-                  <p className="text-gray-700">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend bibendum lorem, vitae euismod nisl laoreet eget. Fusce ut ex vitae elit lobortis maximus. Nulla vitae nulla at nibh aliquam lobortis. Duis sed
-                    suscipit turpis, eget suscipit nisl. Fusce ac nunc sit amet ipsum aliquam tempus quis et mauris.
-                  </p>
-                </div>
-              </div>
             </div>
             <div className="container__latest-posts ml-2 w-full px-4 md:w-1/5">
               <div className="mb-4">
@@ -143,7 +91,7 @@ export default function Home({ popular, latest }) {
                           </div>
                           <div>
                             <Link href={`/blog/${slug}`} className="float-right ml-4 mt-2 rounded bg-primary-500 px-3 py-1 text-sm font-semibold leading-none text-white transition-colors duration-200 hover:bg-primary-600">
-                              Read More
+                              Leer más
                             </Link>
                           </div>
                         </div>
