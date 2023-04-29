@@ -50,6 +50,11 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
+  {
+    key: 'Content-Security-Policy',
+    value:
+      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline'; img-src * data: blob:; media-src 'none'; connect-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'none';",
+  },
 ]
 
 module.exports = withBundleAnalyzer({
