@@ -7,39 +7,56 @@ import formatDate from '@/lib/utils/formatDate'
 
 import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
+import { getAllTags } from '@/lib/tags'
+import kebabCase from '@/lib/utils/kebabCase'
 
 const MAX_DISPLAY = 10
 const MAX_LATEST = 5
+const MAX_TAGS = 5
 
 export async function getStaticProps() {
   const posts = await getFilesFrontMatter('blog')
   const popular = await sortPostsByPopularity(posts.slice(0, MAX_DISPLAY))
   const latest = await sortPostsByDate(posts)
+  const tags = await getAllTags('blog')
+  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
+
   console.log(popular)
   return {
     props: {
       popular,
       latest,
+      sortedTags,
     },
   }
 }
 
-export default function Home({ popular, latest }) {
+export default function Home({ popular, latest, sortedTags }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <section className="flex flex-col">
         <div className="flex flex-col">
-          <div className="flex items-center justify-between p-4">
-            <div className="flex items-center">
-              <span className="mr-2 rounded-full bg-primary-500 px-3 py-1 text-white">Category A</span>
-              <span className="mr-2 rounded-full bg-primary-500 px-3 py-1 text-white">Category B</span>
-              <span className="rounded-full bg-primary-500 px-3 py-1 text-white">Category C</span>
+          <div className="flex flex-col items-center p-4 md:flex-row md:justify-between">
+            <div className="mb-2 flex w-full items-center overflow-x-auto md:mb-0 md:w-4/5">
+              <div className="flex flex-nowrap">
+                {Object.keys(sortedTags).length === 0 && 'No tags found.'}
+                {sortedTags.slice(0, MAX_TAGS).map((t) => {
+                  return (
+                    <div key={t} className="mb-2 mr-5 mt-2">
+                      <Link href={`/tags/${kebabCase(t)}`} className="text-sm font-semibold uppercase text-gray-600 dark:text-gray-300">
+                        <Tag text={t} />
+                      </Link>
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-            <div className="flex items-center">
+            <div className="flex-grow text-right md:w-auto">
               <button className="rounded bg-primary-500 px-4 py-2 font-bold text-white hover:bg-primary-700">Sign Up</button>
             </div>
           </div>
+
           <div className="flex flex-1 flex-col md:flex-row">
             {!popular.length && 'No posts found.'}
             <div className="container__blogs mr-2 flex w-full flex-wrap justify-between md:w-4/5">
