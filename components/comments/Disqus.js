@@ -15,11 +15,11 @@ const Disqus = ({ frontMatter }) => {
       this.page.identifier = frontMatter.slug
     }
     if (window.DISQUS === undefined) {
-      const script = document.createElement('script')
-      script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
-      script.setAttribute('data-timestamp', +new Date())
-      script.async = true
-      document.body.appendChild(script)
+      var d = document,
+        s = d.createElement('script')
+      s.src = 'https://mundohistorias.disqus.com/embed.js'
+      s.setAttribute('data-timestamp', +new Date())
+      ;(d.head || d.body).appendChild(s)
     } else {
       window.DISQUS.reset({ reload: true })
     }
