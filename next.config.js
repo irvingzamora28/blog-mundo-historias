@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app disqus.com https://*.disqus.com https://*.disquscdn.com;
-  style-src 'self' 'unsafe-inline disqus.com';
+  style-src 'self' 'unsafe-inline' disqus.com;
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
