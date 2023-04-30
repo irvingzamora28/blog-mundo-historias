@@ -17,8 +17,9 @@ const Disqus = ({ frontMatter }) => {
     if (window.DISQUS === undefined) {
       var d = document,
         s = d.createElement('script')
-      s.src = 'https://blogmundohistorias.disqus.com/embed.js'
+      s.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
       s.setAttribute('data-timestamp', +new Date())
+      s.async = true
       ;(d.head || d.body).appendChild(s)
     } else {
       window.DISQUS.reset({ reload: true })
