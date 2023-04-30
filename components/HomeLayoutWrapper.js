@@ -41,11 +41,7 @@ const HomeLayoutWrapper = ({ children }) => {
             <div className="flex items-center text-base leading-5">
               <div className="hidden sm:block">
                 {headerNavLinks.map((link) => (
-                  <Link
-                    key={link.title}
-                    href={link.href}
-                    className="p-1 text-xl font-medium text-slate-200 dark:text-gray-100 sm:p-4"
-                  >
+                  <Link key={link.title} href={link.href} className="p-1 text-xl font-medium text-slate-200 dark:text-gray-100 sm:p-4">
                     {link.title}
                   </Link>
                 ))}
@@ -59,14 +55,7 @@ const HomeLayoutWrapper = ({ children }) => {
           {/* Hero section with lower z-index */}
           <div className="relative h-[400px] w-full overflow-hidden">
             <div ref={parallaxRef} className="absolute inset-0 h-[150%]">
-              <Image
-                className="object-cover"
-                src="/static/images/hero-nature-beach.png"
-                layout="fill"
-                objectFit="cover"
-                quality={100}
-                alt="Hero Background"
-              />
+              <Image className="object-cover" src="/static/images/hero-nature-beach.png" layout="fill" objectFit="cover" quality={100} alt="Hero Background" />
               <div className="absolute inset-0 flex items-center justify-center text-center text-6xl font-bold text-white">
                 <span className="">
                   <span className="text-shadow-sm text-4xl">Bienvenido a</span>

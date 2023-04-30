@@ -6,16 +6,7 @@ const siteMetadata = require('../data/siteMetadata')
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
-  const pages = await globby([
-    'pages/*.js',
-    'pages/*.tsx',
-    'data/blog/**/*.mdx',
-    'data/blog/**/*.md',
-    'public/tags/**/*.xml',
-    '!pages/_*.js',
-    '!pages/_*.tsx',
-    '!pages/api',
-  ])
+  const pages = await globby(['pages/*.js', 'pages/*.tsx', 'data/blog/**/*.mdx', 'data/blog/**/*.md', 'public/tags/**/*.xml', '!pages/_*.js', '!pages/_*.tsx', '!pages/api'])
 
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
@@ -33,15 +24,7 @@ const siteMetadata = require('../data/siteMetadata')
                     return
                   }
                 }
-                const path = page
-                  .replace('pages/', '/')
-                  .replace('data/blog', '/blog')
-                  .replace('public/', '/')
-                  .replace('.js', '')
-                  .replace('.tsx', '')
-                  .replace('.mdx', '')
-                  .replace('.md', '')
-                  .replace('/feed.xml', '')
+                const path = page.replace('pages/', '/').replace('data/blog', '/blog').replace('public/', '/').replace('.js', '').replace('.tsx', '').replace('.mdx', '').replace('.md', '').replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
 
                 if (page.search('pages/404.') > -1 || page.search(`pages/blog/[...slug].`) > -1) {
