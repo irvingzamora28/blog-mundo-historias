@@ -4,16 +4,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
-  default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
-  style-src 'self' 'unsafe-inline';
+default-src 'self';
+  default-src 'self' disqus.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app disqus.com;
+  style-src 'self' 'unsafe-inline disqus.com';
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
   font-src 'self';
   frame-src giscus.app
-`
-
+  `
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
@@ -49,11 +49,6 @@ const securityHeaders = [
   {
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
-  },
-  {
-    key: 'Content-Security-Policy',
-    value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.disqus.com https://*.disquscdn.com; style-src 'self' 'unsafe-inline'; img-src * data: blob:; media-src 'none'; connect-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'none';",
   },
 ]
 
