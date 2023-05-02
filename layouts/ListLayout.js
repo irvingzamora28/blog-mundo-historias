@@ -21,10 +21,10 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">{title}</h1>
           <div className="relative max-w-lg">
             <input
-              aria-label="Search articles"
+              aria-label="Buscar historias"
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search articles"
+              placeholder="Buscar historias"
               className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
             />
             <svg className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,7 +40,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
-                    <dt className="sr-only">Published on</dt>
+                    <dt className="sr-only">Publicado en</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date)}</time>
                     </dd>

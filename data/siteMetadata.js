@@ -1,12 +1,12 @@
 const siteMetadata = {
   title: 'Historias y Experiencias',
-  author: 'Tails Azimuth',
+  author: 'Camila Juárez',
   headerTitle: 'Mundo Historias',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
+  description: 'Este blog comparte historias y experiencias sobre traición, decepción y eventos difíciles para conectar con otros y encontrar apoyo y consejos',
+  language: 'es-MX',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://mundohistorias.com/',
+  siteRepo: 'https://github.com/',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -16,7 +16,7 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
-  locale: 'en-US',
+  locale: 'es-MX',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -56,7 +56,7 @@ const siteMetadata = {
       // Place the comment box above the comments. options: bottom, top
       inputPosition: 'bottom',
       // Choose the language giscus will be displayed in. options: en, es, zh-CN, zh-TW, ko, ja etc
-      lang: 'en',
+      lang: 'es',
       // theme when dark mode
       darkTheme: 'transparent_dark',
       // If the theme option above is set to 'custom`

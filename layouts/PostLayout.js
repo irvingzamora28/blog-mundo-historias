@@ -26,7 +26,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
                 <div>
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">Publicado en</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>{new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}</time>
                   </dd>
@@ -39,14 +39,14 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           </header>
           <div className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0" style={{ gridTemplateRows: 'auto 1fr' }}>
             <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
+              <dt className="sr-only">Autor</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
                     <li className="flex items-center space-x-2" key={author.name}>
                       {author.avatar && <Image src={author.avatar} width="38px" height="38px" alt="avatar" className="h-10 w-10 rounded-full" />}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
+                        <dt className="sr-only">Nombre</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
@@ -82,7 +82,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
                     {prev && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Previous Article</h2>
+                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Historia anterior</h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
                         </div>
@@ -90,7 +90,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     )}
                     {next && (
                       <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Next Article</h2>
+                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Siguiente historia</h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${next.slug}`}>{next.title}</Link>
                         </div>
@@ -101,7 +101,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link href="/blog" className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                  &larr; Back to the blog
+                  ← Volver al blog
                 </Link>
               </div>
             </footer>
