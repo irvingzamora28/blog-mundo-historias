@@ -61,11 +61,11 @@ export default function Home({ popular, latest, sortedTags }) {
             {!popular.length && 'No posts found.'}
             <div className="container__blogs mr-2 flex w-full flex-wrap justify-between md:w-4/5">
               {popular.slice(0, MAX_DISPLAY).map((frontMatter) => {
-                const { slug, date, title, summary, tags, popularity } = frontMatter
+                const { slug, date, title, summary, tags, popularity, images } = frontMatter
                 return (
                   <article key={slug} className="mb-4 w-full px-4 md:w-1/3">
                     <div className="mx-auto max-w-md overflow-hidden rounded-lg bg-white shadow">
-                      <Image src="https://picsum.photos/200/300" className="aspect-video w-full object-cover" width={600} height={400} alt="" />
+                      <Image src={images && images.length > 0 ? images[0] : ''} className="aspect-video w-full object-cover" width={600} height={400} alt="" />
                       <div className="p-4">
                         <p className="mb-1 text-sm text-primary-500">
                           Camila Juárez
