@@ -68,7 +68,7 @@ export default function Home({ popular, latest, sortedTags }) {
                       <Image src="https://picsum.photos/200/300" className="aspect-video w-full object-cover" width={600} height={400} alt="" />
                       <div className="p-4">
                         <p className="mb-1 text-sm text-primary-500">
-                          Andrea Felsted
+                          Camila Juárez
                           <time dateTime={date} className="tex-base float-right font-medium leading-6 text-gray-500 dark:text-gray-400">
                             {formatDate(date)}
                           </time>

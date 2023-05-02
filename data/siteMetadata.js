@@ -8,7 +8,7 @@ const siteMetadata = {
   siteUrl: 'https://mundohistorias.com/',
   siteRepo: 'https://github.com/',
   siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
+  image: '/static/images/autor-avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'address@yoursite.com',
   github: 'https://github.com',

@@ -1,16 +1,9 @@
 ---
-name: Tails Azimuth
-avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+name: Camila Juárez
+avatar: /static/images/autor-avatar.png
+occupation: Orientadora escolar y coach de vida
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+La autora de este blog es una persona empática y comprensiva que ha pasado por momentos difíciles en su propia vida. Ella entiende lo solitario y abrumador que puede ser enfrentar traiciones, engaños y otros eventos dolorosos. Como resultado, ha creado este espacio en línea para que las personas puedan compartir sus historias y encontrar consuelo en la comunidad.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+La autora es una persona abierta y accesible que busca conectarse con los demás a través de su blog y ofrecer un lugar seguro donde las personas puedan hablar abiertamente sobre sus experiencias. A través de su propio viaje de sanación, la autora ha desarrollado una perspectiva positiva y esperanzadora, lo que se refleja en la forma en que escribe y se comunica con sus lectores.
